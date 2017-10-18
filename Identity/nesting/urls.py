@@ -5,6 +5,6 @@ from . import views
 urlpatterns = [
                     url(r'^$', Identity_view.as_view(), name = 'nesting'),
                     url(r'^Identity-nest/$', Identity_nest_list_view.as_view(), name = 'Identity_nest_list'),
-                    url(r'^Symptoms-document/$', Symptoms_document_view.as_view(), name = 'Symptoms_nest_list'),
-                    url(r'^Symptom-view/$', Medical_History_nest_view.as_view(), name = 'Medical_History_nest')
+                    url(r'^Symptoms-document/(?P<pk>\w+)', Symptoms_document_view.as_view(), name = 'Symptoms_nest_list'),
+                    url(r'^Symptom-view/(?P<pk>\w+)', Medical_History_nest_view.as_view(), name = 'Medical_History_nest')
 ]
