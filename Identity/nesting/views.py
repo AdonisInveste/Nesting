@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, UpdateView
 from nesting.forms import Identity_Form, Symptom_Form
 from nesting.models import Identity_unique, Symptom_relation
 
@@ -90,7 +90,7 @@ class Symptoms_document_view(TemplateView):
         # Symptoms_desc = Identity_unique.objects.get(pk = pk).Symptom_relation_set
 
 
-        var = {'form':form, 'Symptoms_desc':Symptoms_desc}
+        var = {'form':form, 'Symptoms_desc':Symptoms_desc, 'pk':pk}
 
 
         return render(request, self.template_name, var)
@@ -125,7 +125,7 @@ class Symptoms_document_view(TemplateView):
 
             redirect('nesting:nesting')
 
-        var = {'form': form, 'Symptom_content': Symptom_content}
+        var = {'form': form, 'Symptom_content': Symptom_content, 'pk':pk}
 
         return render(request, self.template_name, var)
 
@@ -149,3 +149,10 @@ class Medical_History_nest_view(TemplateView):
         var = {'form':form, 'Symptoms_desc':Symptoms_desc}
 
         return render(request, self.template_name, var)
+
+
+class Identity_unique_Update(UpdateView):
+
+    model = Identity_Form
+    fields = [ 'First_Name', 'Last_Name', 'location', 'date_of_birth', 'Contact',]
+    template_name_suffix = '_update_form'

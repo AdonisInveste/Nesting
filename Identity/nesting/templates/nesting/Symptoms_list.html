@@ -36,8 +36,8 @@
                         <nav class="col-md-3"  style="  margin-top: 90px;">
 
                           <ul class = "nav flex-column">
-                            <li class = "nav-item"><a class = "nav-link" href = "{% url 'nesting:Medical_History_nest' 1 %}" ><small> See Medical State</small></a></li>
-                                            <li class = "nav-item"> <a class = "nav-link"  href = "{% url 'nesting:nesting'%}"><small>Create Identity </small> </a></li>
+                            <li class = "nav-item"><a class = "nav-link" href = "{% url 'nesting:Medical_History_nest' pk%}" ><small> See Medical State</small></a></li>
+                                            <li class = "nav-item"> <a class = "nav-link"  href = "{% url 'nesting:nesting' %}"><small>Create Identity </small> </a></li>
                                            <li class = "nav-item"><a class = "nav-link" href = "{% url 'nesting:Identity_nest_list'%}" ><small>See  Identity  </small></a></li>
                             </ul>
 
@@ -74,18 +74,7 @@
 
     </div>
 
-
-
-
   </div>
-
-<div class = "form-row">
-        <div class = "form-group">
-          {{form.Severity.errors}}
-          {{form.Severity}}
-        </div>
-  </div>
-
 
     <button class = "btn-primary btn-large btn ">Save</button>
 
