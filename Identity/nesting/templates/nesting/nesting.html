@@ -6,11 +6,28 @@
 
     <head>
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+      <script type = "text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+
+
+      <script type="text/javascript">
+      
+      $('.datepicker').datepicker({
+          format: 'mm/dd/yyyy',
+          startDate: '-3d'
+      });
+
+      </script>
+
+
        {% block head %}
 
     <title>Nesting</title>
 
     {% endblock %}
+
+
 
 	</head>
 
@@ -77,15 +94,15 @@
 
                                       <div class = "form-group col-md-6">
 
-                                        {{form.First_Name.errors}}
-                                        {{form.First_Name}}
+                                        {{form.first_Name.errors}}
+                                        {{form.first_Name}}
 
                                       </div>
 
                                       <div class = "form-group col-md-6">
 
-                                        {{form.Last_Name.errors}}
-                                        {{form.Last_Name}}
+                                        {{form.last_Name.errors}}
+                                        {{form.last_Name}}
 
                                       </div>
 
@@ -126,6 +143,7 @@
 
 
     {% endblock %}
+
 
   </body>
 

@@ -15,7 +15,7 @@ class Identity_Form(forms.ModelForm):
                 )
     )
 
-    First_Name = forms.CharField(
+    first_Name = forms.CharField(
                 widget=forms.TextInput(
                         attrs={
 
@@ -24,7 +24,7 @@ class Identity_Form(forms.ModelForm):
                         }
             )
     )
-    Last_Name = forms.CharField(
+    last_Name = forms.CharField(
 
        widget=forms.TextInput(
                attrs={
@@ -41,7 +41,7 @@ class Identity_Form(forms.ModelForm):
                         attrs= {
 
                         'placeholder':'Enter Address',
-                        'class':'form-control'
+                        'class':'form-control datepicker'
 
                         }
             )
@@ -60,7 +60,7 @@ class Identity_Form(forms.ModelForm):
                 ),
         )
 
-    Contact = forms.CharField(
+    contact = forms.CharField(
 
                     widget=forms.TextInput(
                                 attrs= {
@@ -77,7 +77,7 @@ class Identity_Form(forms.ModelForm):
 
         model = Identity_unique
 
-        fields = ('NIS', 'First_Name', 'Last_Name', 'location', 'date_of_birth', 'Contact',)
+        fields = ('NIS', 'first_Name', 'last_Name', 'location', 'date_of_birth', 'contact',)
 
 
 
@@ -85,7 +85,7 @@ class Identity_Form(forms.ModelForm):
 class Symptom_Form(forms.ModelForm):
 
 
-                Symptom_description = forms.CharField(
+                symptom_description = forms.CharField(
 
                 widget=forms.Textarea(
                             attrs= {
@@ -97,7 +97,7 @@ class Symptom_Form(forms.ModelForm):
                 )
     )
 
-                Symptom_name = forms.CharField(
+                symptom_name = forms.CharField(
 
 
                     widget=forms.TextInput(
@@ -115,4 +115,4 @@ class Symptom_Form(forms.ModelForm):
 
                     model = Symptom_relation
 
-                    fields = ('Symptom_name', 'Symptom_description',)
+                    fields = ('symptom_name', 'symptom_description',)

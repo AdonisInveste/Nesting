@@ -108,7 +108,7 @@ class Symptoms_document_view(TemplateView):
             Symptom_description = form.save(commit = False)
             Symptom_description.user = request.user
 
-            Symptom_content = form.cleaned_data['Symptom_description']
+            Symptom_content = form.cleaned_data['symptom_description']
 
 
 
@@ -154,5 +154,5 @@ class Medical_History_nest_view(TemplateView):
 class Identity_unique_Update(UpdateView):
 
     model = Identity_Form
-    fields = [ 'First_Name', 'Last_Name', 'location', 'date_of_birth', 'Contact',]
+    fields = [ 'first_Name', 'last_Name', 'location', 'date_of_birth', 'contact',]
     template_name_suffix = '_update_form'
