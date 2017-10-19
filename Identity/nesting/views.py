@@ -87,7 +87,7 @@ class Symptoms_document_view(TemplateView):
 
 
         Symptoms_desc = Symptom_relation.objects.all()
-        # Symptoms_desc = Identity_unique.objects.get(pk = pk).Symptom_relation_set
+        #Symptoms_desc = Identity_unique.objects.get(pk = pk).Symptom_relation_set
 
 
         var = {'form':form, 'Symptoms_desc':Symptoms_desc, 'pk':pk}
@@ -144,7 +144,7 @@ class Medical_History_nest_view(TemplateView):
         form = Symptom_Form()
 
         Symptoms_desc = Symptom_relation.objects.all()
-        Symptoms_desc = Identity_unique.objects.get(pk=pk).symptom.all()
+        Symptoms_desc = Identity_unique.objects.get(pk=pk).Symptom.all()
 
         var = {'form':form, 'Symptoms_desc':Symptoms_desc}
 
