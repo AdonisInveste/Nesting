@@ -3,16 +3,14 @@ from django.views.generic import TemplateView, UpdateView
 from nesting.forms import Identity_Form, Symptom_Form
 from nesting.models import Identity_unique, Symptom_relation
 
-# Create your views here.
+
 
 class Identity_view(TemplateView):
 
     template_name = 'nesting/nesting.html'
 
     def get(self, request):
-        # Create view logic
 
-        # Instantiate Identity Form
 
         form = Identity_Form()
 
@@ -24,13 +22,11 @@ class Identity_view(TemplateView):
 
     def post(self, request):
 
-        # Create a form instance and populate it with data from the request
 
-        form  = Identity_Form(request.POST or None)
+
+        form  = Identity_Form(request.POST)
 
         content = None
-
-        # Assess whether the data is valid
 
         if form.is_valid():
 
@@ -38,12 +34,12 @@ class Identity_view(TemplateView):
             NIS.user = request.user
             NIS.save()
 
-            # process the data in form.cleaned_data as required
+
             content = form.cleaned_data['NIS']
 
             form = Identity_Form()
 
-# redirect to nesting url
+
             return redirect('nesting:nesting')
 
         var = {'form': form, 'content': content}
@@ -52,11 +48,11 @@ class Identity_view(TemplateView):
 
 
 
-# Sript code to ensure that if the user reloads it returns a fresh from for the user to fill.
+
 
 class Identity_nest_list_view(TemplateView):
 
-    # Create Identity_nest_list_view logic
+
 
     model = Identity_unique
 
@@ -153,6 +149,6 @@ class Medical_History_nest_view(TemplateView):
 
 class Identity_unique_Update(UpdateView):
 
-    model = Identity_Form
+    model = Identity_unique
+
     fields = [ 'first_Name', 'last_Name', 'location', 'date_of_birth', 'contact',]
-    template_name_suffix = '_update_form'

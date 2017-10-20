@@ -25,7 +25,7 @@
         <ul class = "nav flex-column">
 
                          <li class = "nav-item"><a class = "nav-link" href = "{% url 'nesting:nesting'%}" ><small>Create  Identity </small></a></li>
-                         <li class = "nav-item"><a class = "nav-link" href = "#"><small>Update </small></a></li>
+
                          <li class = "nav-item"><a class = "nav-link" href = "#"><small>Move to Trash</small> </a></li>
           </ul>
 
@@ -45,7 +45,7 @@
               <li class = "list-group-item"><p> <small>Contact: {{ Identity.contact}}</small></p></a></li>
               <li class = "list-group-item"><p> <small>Birthday: {{ Identity.date_of_birth}}</small></p></a></li>
               <li class = "list-group-item"><a class = "nav-link" href = "{%url 'nesting:Symptoms_nest_list' Identity.pk %}" ><small>Create Medical State </small></a></li>
-
+              <li class = "list-group-item"><a class = "nav-link" href = "{% url 'nesting:Identity_unique_view_update' Identity.get_absolute_url %}"><small>Update </small></a></li>
             </ul>
     </div>
           {% endfor %}

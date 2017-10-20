@@ -41,7 +41,7 @@ class Identity_Form(forms.ModelForm):
                         attrs= {
 
                         'placeholder':'Enter Address',
-                        'class':'form-control datepicker'
+                        'class':'form-control'
 
                         }
             )
@@ -49,11 +49,10 @@ class Identity_Form(forms.ModelForm):
 
     date_of_birth = forms.DateField(
 
-            required = False,
                 widget=forms.TextInput(
                             attrs= {
 
-                            'placeholder' : 'Enter birth day',
+                            'placeholder' : 'Enter Birthday',
                             'class':'form-control'
 
                             }

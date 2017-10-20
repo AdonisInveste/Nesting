@@ -2,7 +2,7 @@ from django.db import models
 
 
 from django.contrib.auth.models import User
-
+from django.core.urlresolvers import reverse
 
 
 from Identity import settings
@@ -30,6 +30,9 @@ class Identity_unique(models.Model):
 
     contact = models.CharField(max_length = 15, null = True)
 
+    def get_absolute_url(self):
+        return reverse('Identity_nest_list', kwargs = {'pk':self.pk})
+
 
 
 
@@ -39,6 +42,8 @@ class Symptom_relation(models.Model):
     symptom_name = models.CharField(max_length = 80, default = '')
 
     symptom_description = models.TextField(max_length = 1000, default = '')
+
+    time_record = models.DateTimeField(auto_now = True)
 
     Unique_Identity = models.ManyToManyField(Identity_unique, blank = False, related_name = 'Symptom')
 
