@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views.generic import TemplateView, UpdateView
 from nesting.forms import Identity_Form, Symptom_Form
 from nesting.models import Identity_unique, Symptom_relation
+
 
 
 
@@ -152,3 +153,6 @@ class Identity_unique_Update(UpdateView):
     model = Identity_unique
 
     fields = [ 'first_Name', 'last_Name', 'location', 'date_of_birth', 'contact',]
+
+    def get_success_url(self):
+        success_url = reverse('Identity_nest_list', kwargs={'pk': self.object.pk})

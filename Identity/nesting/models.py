@@ -30,8 +30,7 @@ class Identity_unique(models.Model):
 
     contact = models.CharField(max_length = 15, null = True)
 
-    def get_absolute_url(self):
-        return reverse('Identity_nest_list', kwargs = {'pk':self.pk})
+
 
 
 
